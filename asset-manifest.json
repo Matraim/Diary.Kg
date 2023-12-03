@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Diary.Kg/static/css/main.c7ec3132.css",
+    "main.js": "/Diary.Kg/static/js/main.2cbfee3e.js",
+    "static/media/trello-ar21.svg": "/Diary.Kg/static/media/trello-ar21.1f26746af48ebcd32075f6fb3995a155.svg",
+    "index.html": "/Diary.Kg/index.html",
+    "main.c7ec3132.css.map": "/Diary.Kg/static/css/main.c7ec3132.css.map",
+    "main.2cbfee3e.js.map": "/Diary.Kg/static/js/main.2cbfee3e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7ec3132.css",
+    "static/js/main.2cbfee3e.js"
+  ]
+}
