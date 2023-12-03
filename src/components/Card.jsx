@@ -45,7 +45,7 @@ export const Card = ({ boardIndex, cardIndex, text, onEdit, onDelete }) => {
         isOpen={isEditing}
         onClose={handleCloseModal}
         onSave={handleSaveEdit}
-        title="Edit Card"
+        title="Редактировать задачу ! "
         initialText={text}
       />
     </>

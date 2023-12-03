@@ -13,6 +13,9 @@ import { Card } from './Card';
 import styled from 'styled-components';
 import Modal from './Modal';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Board = ({ boardIndex, cards }) => {
   const dispatch = useDispatch();
 
@@ -38,7 +41,7 @@ const Board = ({ boardIndex, cards }) => {
     item: { boardIndex },
   });
 
-  const predefinedTitles = ['To Do', 'In Progress', 'Done'];
+  const predefinedTitles = ['Задача 🔸', 'Выполняются 🔹', 'Завершено ✅'];
 
   const handleEditTitle = () => {
     setEditingTitle(true);
@@ -77,8 +80,12 @@ const Board = ({ boardIndex, cards }) => {
   };
 
   const handleAddCardModalSave = (text) => {
-    dispatch(addCard({ boardIndex, card: { text, status: 'todo' } }));
-    setAddingCard(false);
+    if (text.trim() !== '') {
+      dispatch(addCard({ boardIndex, card: { text, status: 'todo' } }));
+      setAddingCard(false);
+    } else {
+      toast.info('Please enter a task');
+    }
   };
 
   return (
@@ -93,8 +100,6 @@ const Board = ({ boardIndex, cards }) => {
                 onChange={handleTitleChange}
                 onBlur={handleSaveTitle}
               />
-
-              <button onClick={handleSaveTitle}>Save</button>
             </>
           ) : (
             <>
@@ -129,13 +134,13 @@ const Board = ({ boardIndex, cards }) => {
             />
           ))}
         </CardList>
-        <AddCardButton onClick={handleAddCard}>Add Card</AddCardButton>
+        <AddCardButton onClick={handleAddCard}> Добавить Задачу </AddCardButton>
         {isAddingCard && (
           <Modal
             isOpen={isAddingCard}
             onClose={handleAddCardModalClose}
             onSave={handleAddCardModalSave}
-            title="Add Card"
+            title="Добавить задачу"
           />
         )}
         <br />
@@ -148,7 +153,7 @@ export default Board;
 
 //  Style
 const StyleContainer = styled.div`
-  padding: 4rem;
+  padding: 6rem;
 `;
 
 const BoardContainer = styled.div`

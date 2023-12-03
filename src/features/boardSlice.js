@@ -9,10 +9,10 @@ const boardSlice = createSlice({
 
   reducers: {
     addBoard: (state, action) => {
-      if (state.boards.length < 10) {
+      if (state.boards.length < 3) {
         state.boards.push(action.payload);
       } else {
-        console.warn('Cannot add more than 3 boards.');
+        console.warn('Максимум 3 доска можно добавить');
       }
     },
     addCard: (state, action) => {

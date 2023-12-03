@@ -54,14 +54,13 @@ const CustomModal = ({ isOpen, onClose, onSave, title, initialText }) => {
           type="text"
           value={text}
           onChange={handleTextChange}
-          placeholder="Enter card text..."
           multiline
           rows={4}
           fullWidth
         />
         <ButtonContainer>
-          <Button onClick={onClose}>Cancel</Button>
-          <StyledButton onClick={handleSave}>Save</StyledButton>
+          <Button onClick={onClose}>Отмена</Button>
+          <StyledButton onClick={handleSave}>Сохранить</StyledButton>
         </ButtonContainer>
       </ModalContent>
     </StyledModal>

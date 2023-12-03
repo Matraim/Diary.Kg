@@ -5,6 +5,7 @@ import Board from './components/Board.jsx';
 import styled from 'styled-components';
 import Header from './components/Header.jsx';
 import './index.css';
+import { Button } from '@mui/material';
 
 const AppContainer = styled.div`
   display: flex;
@@ -23,7 +24,6 @@ const AddBoardButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 145, 255, 0.682);
   border: none;
   cursor: pointer;
   width: 250px;
@@ -56,7 +56,9 @@ const App = () => {
         disableElevation
         onClick={handleAddBoard}
       >
-        Добавить новый доску
+        <Button variant="contained" disableElevation>
+          Добавить новый доску
+        </Button>
       </AddBoardButton>
     </AppContainer>
   );
