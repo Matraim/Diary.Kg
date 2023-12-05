@@ -23,6 +23,7 @@ const ForgotPasswordForm = ({ onCancel }) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
+
       <TextField
         label="Введите адрес электронной почты"
         variant="outlined"
@@ -35,6 +36,7 @@ const ForgotPasswordForm = ({ onCancel }) => {
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
       />
+
       <TextField
         label="Пароль"
         variant="outlined"
@@ -48,13 +50,16 @@ const ForgotPasswordForm = ({ onCancel }) => {
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
+
       <Box justifyContent="space-between" display="flex" py={2}>
         <Button onClick={onCancel} variant="outlined" color="primary">
           Отмена
         </Button>
+
         <Button type="submit" variant="contained" color="primary">
           Сбросить пароль
         </Button>
+        
       </Box>
     </form>
   );

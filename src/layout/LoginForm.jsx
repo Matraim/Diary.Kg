@@ -25,9 +25,9 @@ const LoginForm = () => {
       password: '',
       email: '',
     },
+
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
       navigate('/trello');
     },
   });
@@ -42,10 +42,11 @@ const LoginForm = () => {
 
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <StyledHeader>Welcome to Diary.io</StyledHeader>
+      <StyledHeader>Welcome to Diary.kg</StyledHeader>
       {showForgotPassword ? (
         <ForgotPasswordForm onCancel={handleForgotPasswordCancel} />
       ) : (
+
         <>
           <TextField
             label="Имя пользователя"
@@ -59,6 +60,7 @@ const LoginForm = () => {
             error={formik.touched.username && Boolean(formik.errors.username)}
             helperText={formik.touched.username && formik.errors.username}
           />
+
           <TextField
             label="Пароль"
             variant="outlined"
@@ -72,6 +74,7 @@ const LoginForm = () => {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
+
           <TextField
             label="Адрес электронной почты"
             variant="outlined"
@@ -84,6 +87,7 @@ const LoginForm = () => {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
           />
+          
           <Box textAlign="center" padding="1rem">
             <Button type="submit" variant="contained" color="primary">
               Войти

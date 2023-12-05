@@ -50,7 +50,7 @@ const Board = ({ boardIndex, cards }) => {
 
   const handleSaveTitle = () => {
     if (newBoardTitle.trim() !== '') {
-      dispatch(editBoardTitle({ boardIndex, newTitle: newBoardTitle }));
+      dispatch(editBoardTitle({ boardIndex, newTitle: newBoardTitle })); //!bug
       setEditingTitle(false);
     }
   };
@@ -117,10 +117,13 @@ const Board = ({ boardIndex, cards }) => {
               </BoardTitle>
             </>
           )}
+
           <DeleteButton onClick={handleDeleteBoard}>
             <RemoveCircleIcon />
           </DeleteButton>
+          
         </BoardHeader>
+
         <CardList>
           {cards.map((card, index) => (
             <Card
@@ -134,6 +137,7 @@ const Board = ({ boardIndex, cards }) => {
             />
           ))}
         </CardList>
+
         <AddCardButton onClick={handleAddCard}> Добавить Задачу </AddCardButton>
         {isAddingCard && (
           <Modal
@@ -144,6 +148,7 @@ const Board = ({ boardIndex, cards }) => {
           />
         )}
         <br />
+
       </BoardContainer>
     </StyleContainer>
   );
@@ -152,6 +157,7 @@ const Board = ({ boardIndex, cards }) => {
 export default Board;
 
 //  Style
+
 const StyleContainer = styled.div`
   padding: 6rem;
 `;
@@ -183,7 +189,7 @@ const BoardTitle = styled.h3`
 
 const AddCardButton = styled.div`
   padding: 8px;
-  background-color: #5aac44;
+  background-color: #3355a9;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -197,16 +203,9 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-// const EditTitleButton = styled.button`
-//   background-color: #3498db;
-//   color: #fff;
-//   border: none;
-//   border-radius: 4px;
-//   cursor: pointer;
-// `;
-
 const CardList = styled.div`
   flex-grow: 1;
   min-height: 50px;
   margin-bottom: 8px;
 `;
+

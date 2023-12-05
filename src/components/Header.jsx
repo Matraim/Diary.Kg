@@ -12,11 +12,7 @@ const Header = () => {
         <AutoStoriesIcon fontSize="large" />
         Diary.io
       </Title>
-      <NavBar>
-        <NavItem>Home</NavItem>
-        <NavItem>About</NavItem>
-        <NavItem>Contact</NavItem>
-      </NavBar>
+
       <StyleAvatart>
         <Avatar alt="Remy Sharp" src={AvatarAdmin} />
         <Avatar sx={{ bgcolor: deepOrange[500] }}>M</Avatar>
@@ -48,18 +44,6 @@ const Title = styled.div`
   svg {
     margin-right: 0.5rem;
   }
-`;
-
-const NavBar = styled.nav`
-  display: flex;
-  gap: 5rem;
-  color: wheat;
-  font-size: 1.5rem;
-  cursor: pointer;
-`;
-
-const NavItem = styled.div`
-  cursor: pointer;
 `;
 
 const StyleAvatart = styled.div`

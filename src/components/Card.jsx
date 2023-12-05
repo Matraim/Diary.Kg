@@ -34,13 +34,17 @@ export const Card = ({ boardIndex, cardIndex, text, onEdit, onDelete }) => {
     <>
       <CardContainer ref={drag}>
         <CardText onClick={handleEditClick}>{text}</CardText>
+
         <EditIcon onClick={handleEditClick}>
           <DriveFileRenameOutlineIcon />
         </EditIcon>
+
         <DeleteIcons onClick={handleDeleteClick}>
           <DeleteIcon />
         </DeleteIcons>
+        
       </CardContainer>
+
       <Modal
         isOpen={isEditing}
         onClose={handleCloseModal}
@@ -48,6 +52,7 @@ export const Card = ({ boardIndex, cardIndex, text, onEdit, onDelete }) => {
         title="Редактировать задачу ! "
         initialText={text}
       />
+
     </>
   );
 };

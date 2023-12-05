@@ -7,6 +7,41 @@ import Header from './components/Header.jsx';
 import './index.css';
 import { Button } from '@mui/material';
 
+const App = () => {
+  const dispatch = useDispatch();
+  const boards = useSelector((state) => state.board.boards);
+
+  const handleAddBoard = () => {
+    dispatch(addBoard({ cards: [] }));
+  };
+
+  return (
+    <AppContainer>
+      <Header />
+      
+      <BoardsContainer>
+        {boards.map((board, index) => (
+          <Board key={index} boardIndex={index} cards={board.cards} />
+        ))}
+      </BoardsContainer>
+
+      <AddBoardButton
+        variant="contained"
+        disableElevation
+        onClick={handleAddBoard}
+      >
+        <Button variant="contained" disableElevation>
+          Добавить новый доску
+        </Button>
+      </AddBoardButton>
+    </AppContainer>
+  );
+};
+
+export default App;
+
+//
+
 const AppContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -34,34 +69,3 @@ const AddBoardButton = styled.div`
   color: wheat;
   border-radius: 3px;
 `;
-
-const App = () => {
-  const dispatch = useDispatch();
-  const boards = useSelector((state) => state.board.boards);
-
-  const handleAddBoard = () => {
-    dispatch(addBoard({ cards: [] }));
-  };
-
-  return (
-    <AppContainer>
-      <Header />
-      <BoardsContainer>
-        {boards.map((board, index) => (
-          <Board key={index} boardIndex={index} cards={board.cards} />
-        ))}
-      </BoardsContainer>
-      <AddBoardButton
-        variant="contained"
-        disableElevation
-        onClick={handleAddBoard}
-      >
-        <Button variant="contained" disableElevation>
-          Добавить новый доску
-        </Button>
-      </AddBoardButton>
-    </AppContainer>
-  );
-};
-
-export default App;
